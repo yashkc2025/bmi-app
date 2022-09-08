@@ -36,12 +36,12 @@ class _BmiState extends State<Bmi> {
                 body: Column(
                   children: [
                     const SizedBox(
-                      height: 40,
+                      height: 100,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
+                        SizedBox(
                           width: 130,
                           child: TextField(
                             controller: _height,
@@ -54,7 +54,7 @@ class _BmiState extends State<Bmi> {
                                 hintStyle: TextStyle(color: Colors.white)),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 130,
                           child: TextField(
                             controller: _weight,
@@ -70,30 +70,6 @@ class _BmiState extends State<Bmi> {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    GestureDetector(
-                      onTap: () {
-                        double _h = double.parse(_height.text);
-                        double _w = double.parse(_weight.text);
-                        setState(() {
-                          _bmi = _w / (_h * _h);
-                          if (_bmi > 25) {
-                            _result = "You are over weight";
-                          } else if (_bmi >= 18.5 && _bmi <= 25) {
-                            _result = "You have normal weight";
-                          } else {
-                            _result = "You are under weight";
-                          }
-                        });
-                      },
-                      child: Container(
-                          child: const Text(
-                        'Calculate',
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.amber,
-                            fontWeight: FontWeight.bold),
-                      )),
-                    ),
                     const SizedBox(height: 40),
                     Container(
                       child: Text(
@@ -110,6 +86,40 @@ class _BmiState extends State<Bmi> {
                             style: TextStyle(fontSize: 32, color: Colors.amber),
                           ),
                         )),
+                    SizedBox(
+                      height: 80,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        double _h = double.parse(_height.text);
+                        double _w = double.parse(_weight.text);
+                        setState(() {
+                          _bmi = _w / (_h * _h);
+                          if (_bmi > 25) {
+                            _result = "You are over weight";
+                          } else if (_bmi >= 18.5 && _bmi <= 25) {
+                            _result = "You have normal weight";
+                          } else {
+                            _result = "You are under weight";
+                          }
+                        });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: Container(
+                            padding: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: const Text(
+                              'Calculate',
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            )),
+                      ),
+                    ),
                   ],
                 ))));
   }
