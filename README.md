@@ -1,5 +1,5 @@
 # bmi_app
-A simple BMI app
+A minimal BMI app
 
 # demo
 
