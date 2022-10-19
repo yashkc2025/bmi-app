@@ -12,8 +12,8 @@ class Bmi extends StatefulWidget {
 }
 
 class _BmiState extends State<Bmi> {
-  TextEditingController _height = TextEditingController();
-  TextEditingController _weight = TextEditingController();
+  final TextEditingController _height = TextEditingController();
+  final TextEditingController _weight = TextEditingController();
   double _bmi = 0;
   String _result = "";
 
@@ -74,19 +74,21 @@ class _BmiState extends State<Bmi> {
                     Container(
                       child: Text(
                         _bmi.toStringAsFixed(2),
-                        style: TextStyle(fontSize: 90, color: Colors.amber),
+                        style:
+                            const TextStyle(fontSize: 90, color: Colors.amber),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Visibility(
                         visible: _result.isNotEmpty,
                         child: Container(
                           child: Text(
                             _result,
-                            style: TextStyle(fontSize: 32, color: Colors.amber),
+                            style: const TextStyle(
+                                fontSize: 32, color: Colors.amber),
                           ),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 80,
                     ),
                     GestureDetector(
@@ -107,7 +109,7 @@ class _BmiState extends State<Bmi> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Container(
-                            padding: EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                                 color: Colors.amber,
                                 borderRadius: BorderRadius.circular(12)),
